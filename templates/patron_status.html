@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block content %}
+<h2>Get Patron Status</h2>
+
+<form method="POST" action="{{ url_for('catalog.patron_status') }}">
+  <div class="form-group">
+    <label for="patron_id">Patron ID *</label>
+    <input
+      type="text"
+      id="patron_id"
+      name="patron_id"
+      pattern="[0-9]{6}"
+      maxlength="6"
+      required
+      value="{{ request.form.patron_id if request.form.patron_id else '' }}"
+    />
+    <small style="color: #666">6-digit library card number</small>
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-success">Get Status</button>
+    <a
+      href="{{ url_for('catalog.catalog') }}"
+      class="btn"
+      style="margin-left: 10px"
+      >Cancel</a
+    >
+  </div>
+</form>
+
+<!-- display patron status -->
+
+{% endblock %}
