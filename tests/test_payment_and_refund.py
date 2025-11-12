@@ -14,7 +14,7 @@ def test_pay_late_fees_success(mocker):
         return_value={"fee_amount": 5.0, "days_overdue": 3, "status": "late fee"}
     )
     mocker.patch(
-        "services.library_service.get_book_by_id",
+        "services.library_servicGe.get_book_by_id",
         return_value={"id": 1, "title": "1984", "author": "George Orwell"}
     )
 
